@@ -1,0 +1,46 @@
+
+<div class="container">
+    <form [formGroup]="signupForm" class="form_main" (ngSubmit)="onSubmit()">
+        <p class="heading">Sign Up</p>
+        <div class="inputContainer">
+            <input formControlName="firstName" placeholder="First Name" id="firstName" class="inputField" type="text">
+    
+        </div>
+        <div class="inputContainer">
+            <input formControlName="lastName" placeholder="Last Name" id="lastName" class="inputField" type="text">
+    
+        </div>
+        <div class="inputContainer">
+            <input formControlName="email" placeholder="Email" id="email" class="inputField" type="text">
+    
+        </div>
+        <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="error">
+            Invalid Email
+        </div>
+        <div class="inputContainer">
+        
+            <input formControlName="password" placeholder="Password" id="password" class="inputField" type="password">
+    
+        </div>
+        <div *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" class="error">
+            Password is required (minimum 6 characters).
+        </div>
+        <div class="inputContainer">
+        
+            <input formControlName="confirmPassword" placeholder="Confirm Password" id="confirmPassword" class="inputField" type="password">
+    
+        </div>
+        <div *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched" class="error">
+            Password is required (minimum 6 characters).
+        </div>
+    
+        <button type="submit" id="button">
+            <app-loader *ngIf="loading"></app-loader>
+            <span *ngIf="!loading">Signup</span>
+        </button>
+        <div class="signupContainer">
+            <p>Already have a account?</p>
+            <a routerLink="/login">Login</a>
+        </div>
+    </form>
+</div>

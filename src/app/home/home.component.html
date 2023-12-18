@@ -1,0 +1,10 @@
+<div style="display:flex;justify-content:center;align-items:center;align-content:center; height:100vh;">
+    <div style="width: 20%;">
+        <h1 style="color:blueviolet;text-align:center;">
+            Logged in as {{user?.name}}
+        </h1>
+        <p *ngIf="show" style="min-width: 20rem;width:auto;color:green;background-color:#ccc;word-wrap: break-word;">{{token}}</p>
+        <button class="btn" (click)="showToken()">{{show ? "hide token" : "show showToken"}}</button>
+        <button class="btn" (click)="removeToken()">Logout</button>
+    </div>
+</div>
